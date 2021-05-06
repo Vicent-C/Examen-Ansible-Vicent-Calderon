@@ -1,0 +1,16 @@
+---
+#PLAY 1
+- name: Crear usuarios
+  hosts: all
+  remote_user: root
+  become: yes
+  tasks: 
+    - name: crear grupo user
+      group: name=user
+    - name: Crear usuario
+      user: name={{ env }} password=123 group=user createhome=yes
+
+#PLAY 2
+    - name: Copiar archivos a webservers
+      include: copy-playbook.yml
+...

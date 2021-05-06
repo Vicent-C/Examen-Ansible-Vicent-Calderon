@@ -1,0 +1,8 @@
+---
+- name: copiar archivos
+  copy:
+    src: ./archivo.txt 
+    dest: /tmp/{{ env }}.txt
+    owner: "{{ env }}"
+    group: user
+...
